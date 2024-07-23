@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Sheet from '@mui/joy/Sheet';
 import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const logo = '/logo/Logo-vert-transparent.png';
 
@@ -11,14 +11,10 @@ export default function Splashscreen() {
   const router = useRouter();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       router.push('/dashboard');
     }, 2000);
-
-    // Nettoyage du timer lors du démontage du composant
-    return () => clearTimeout(timer);
-  }, [router]);
-
+  }, []);
   return (
     <Sheet
       sx={{
